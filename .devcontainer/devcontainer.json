@@ -1,0 +1,90 @@
+{
+    "name": "Development",
+    "build": {
+        // Path is relative to the devcontainer.json file.
+        "dockerfile": "Dockerfile"
+    },
+    // Mounts for local dbt profiles and snowflake RSA keypair paths (Optinoal)
+    "mounts": [
+        // Mount your local .dbt/profiles.yml to the contaier workspace
+        "smource=${localEnv:HOME}/.dbt/profiles.yml,target=/workspaces/data-dbt/profiles.yml,type=bind,consistency=cached",
+
+        // mount your .keys directory to the contaier (contains your rsa_key.p8 for snowflake)
+        // "source=${localEnv:HOME}/.keys/,target=/root/.keys/,type=bind,consistency=cached"
+    ],
+    // Configure tool-specific properties.
+    "customizations": {
+        "vscode": {
+            "settings": {
+                // font and workbench
+                // "workbench.colorTheme": "GitHub Dark Dimmed",
+                // "workbench.iconTheme": "vscode-icons",
+                "workbench.colorCustomizations": {
+                    "tab.activeBackground": "#62652e"
+                },
+                "terminal.integrated.inheritEnv": false,
+                "vsicons.dontShowNewVersionMessage": true,
+                "files.associations": {
+                    "*.sql": "jinja-sql",
+                    "*.yml": "jinja-yaml"
+                },
+                // "editor.fontFamily": "CaskaydiaMono Nerd Font",
+                // "editor.fontSize": 12,
+                "editor.fontLigatures": true,
+                "editor.rulers": [
+                    80,
+                    100
+                ],
+                // terminal and formatting
+                "python.pythonPath": "/usr/local/bin/python",
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.languageServer": "Pylance",
+                "python.formatting.provider": "black",
+                "python.formatting.blackPath": "/usr/local/bin/black",
+                "python.formatting.blackArgs": [
+                    "--line-length",
+                    "100"
+                ],
+                // run on save
+                "emeraldwalk.runonsave": {
+                    "commands": [
+                        {
+                            "match": "\\.sql$",
+                            "cmd": "sqlfmt ${file}"
+                        }
+                        // {
+                        //     "match": "\\.txt$",
+                        //     "cmd": "echo 'I am a .txt file ${file}.'"
+                        // },
+                    ]
+                }
+            },
+            "extensions": [
+                "editorconfig.editorconfig",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-vscode-remote.remote-containers",
+                "ms-vscode.remote-explorer",
+                "visualstudioexptteam.vscodeintellicode",
+                "eamodio.gitlens",
+                "redhat.vscode-yaml",
+                "samuelcolvin.jinjahtml",
+                "vscode-icons-team.vscode-icons",
+                "mhutchie.git-graph",
+                "christian-kohler.path-intellisense",
+                "shardulm94.trailing-spaces",
+                "oderwat.indent-rainbow",
+                "GitHub.copilot",
+                "GitHub.github-vscode-theme",
+                "GitHub.vscode-pull-request-github",
+                "mechatroner.rainbow-csv",
+                "janisdd.vscode-edit-csv",
+                "innoverio.vscode-dbt-power-user",
+                "bastienboutonnet.vscode-dbt",
+                "emeraldwalk.RunOnSave"
+            ]
+        }
+    }
+    // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+    // "remoteUser": "root"
+}
