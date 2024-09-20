@@ -7,7 +7,16 @@
 	"build": {
 
 		"dockerfile": "Dockerfile"
-	}
+	},
+
+	"mounts": [
+        // Mount your local .dbt/profiles.yml to the contaier workspace
+        "source=${localEnv:HOME}/.dbt/profiles.yml,target=/root/.dbt/profiles.yml,type=bind,consistency=cached",
+
+        // mount your .keys directory to the contaier (contains your rsa_key.p8 for snowflake)
+        // "source=${localEnv:HOME}/.keys/,target=/root/.keys/,type=bind,consistency=cached"
+    ]
+
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 
