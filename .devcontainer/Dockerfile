@@ -29,6 +29,7 @@ COPY powerlevel_config.zsh root/.p10k.zsh
 RUN echo "[[ ! -f /root/.p10k.zsh ]] || source /root/.p10k.zsh" >> ~/.zshrc
 
 ENV SHELL /usr/bin/zsh
+ENV DBT_PROFILES_DIR="/workspaces"
 
 # install packages
 COPY requirements.txt requirements.txt
