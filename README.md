@@ -1,7 +1,7 @@
 
 # Project Name
 
-Briefly describe the purpose of your dbt project. What problem does it solve, and who is it for?
+This dbt project allows you to set up a dev container that runs dbt using BigQuery as a warehouse
 
 ## Table of Contents
 
