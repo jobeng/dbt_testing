@@ -29,8 +29,11 @@ Instructions on how to set up and run the project locally. Include:
     - Dev Containers
     - Power User for dbt
     - Docker
+
 2. **Database Connection**: 
-Navigate to your profiles.yml file 
+- Ensure your BigQuery user with the following roles: BigQuery User and BigQuery Data Editor
+
+- Navigate to your profiles.yml file 
 ``` mkdir -p ~/.dbt && touch ~/.dbt/profiles.yml && nano ~/.dbt/profiles.yml ```
 
 Fill out the profiles yml as follows 
@@ -48,7 +51,8 @@ Fill out the profiles yml as follows
       project: your_project_id
       dataset: your_dataset_name
       threads: 4
-      keyfile: /path/to/your/service-account-key.json```
+      keyfile: /path/to/your/service-account-key.json
+```
 
 my_project: The name of your dbt project. Change this to match your project name.
 target: Specifies the environment you want to use (in this case, dev).
