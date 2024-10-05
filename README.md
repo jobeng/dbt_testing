@@ -54,16 +54,16 @@ Fill out the profiles yml as follows
       keyfile: /path/to/your/service-account-key.json
 ```
 
-    - **`my_project`**: The name of your dbt project. Change this to match your project name.
-    - **`target`**: Specifies the environment you want to use (in this case, dev).
-    - **`outputs`**: Contains configurations for your database environments.
-    - **`dev`**: Configuration for the development environment.
-    - **`type`**: Set to bigquery for Google BigQuery.
-    - **`project`**: Your Google Cloud project ID.
-    - **`dataset`**: The BigQuery dataset where dbt will create tables and views.
-    - **`threads`**: The number of threads dbt can use for running models concurrently.
-    - **`keyfile`**: The path to your service account JSON key file for authentication.
-    - **`prod`**: Similar configuration for the production environment.
+- **`my_project`**: The name of your dbt project. Change this to match your project name.
+- **`target`**: Specifies the environment you want to use (in this case, dev).
+- **`outputs`**: Contains configurations for your database environments.
+- **`dev`**: Configuration for the development environment.
+- **`type`**: Set to bigquery for Google BigQuery.
+- **`project`**: Your Google Cloud project ID.
+- **`dataset`**: The BigQuery dataset where dbt will create tables and views.
+- **`threads`**: The number of threads dbt can use for running models concurrently.
+- **`keyfile`**: The path to your service account JSON key file for authentication.
+- **`prod`**: Similar configuration for the production environment.
 
 **Things to note**:
 1. Replace your_project_id and your_dataset_name with your actual Google Cloud project ID and BigQuery dataset name.
