@@ -38,5 +38,15 @@ RUN pip install --upgrade pip \
     && rm -rf /root/.cache \
     && rm -rf work/*
 
+RUN echo "alias zedit='vim ~/.zshrc'" >> ~/.zshrc
+RUN echo "alias work='cd /workspaces/dbt_testing'" >> ~/.zshrc
+RUN echo "alias newsh='exec $SHELL && source ~/.zshrc'" >> ~/.zshrc
+RUN echo "alias pcr='git stage . && pre-commit run'" >> ~/.zshrc
+
+# functions
+RUN echo 'function dbtddf() { \
+    dbt "$@" -x \
+    }' >> ~/.zshrc
+
 # entry
 ENTRYPOINT [ "/bin/zsh" ]
