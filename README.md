@@ -8,11 +8,7 @@ Briefly describe the purpose of your dbt project. What problem does it solve, an
 1. [Project Overview](#project-overview)
 2. [Getting Started](#getting-started)
 3. [Project Structure](#project-structure)
-4. [Data Sources](#data-sources)
-5. [Models](#models)
-6. [Testing and Validation](#testing-and-validation)
-7. [Contributing](#contributing)
-8. [License](#license)
+4. [Testing and Validation](#testing-and-validation)
 
 ## Project Overview
 
